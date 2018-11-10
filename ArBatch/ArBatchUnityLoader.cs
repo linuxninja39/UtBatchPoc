@@ -19,7 +19,7 @@ namespace ArBatch
             //Connection string
             var writerConnectionString = ConfigurationManager.ConnectionStrings["Default"];
             Logger.Debug("registering reader");
-            container.StepScopeRegistration<IItemReader<object>, TestReader>("FlatFileReader/FlatFileReader").Register();
+            container.StepScopeRegistration<IItemReader<Class1>, TestReader>("FlatFileReader/FlatFileReader").Register();
             Logger.Debug("registering processor");
             container.RegisterStepScope<IItemProcessor<Class1, Class1>, TestProcessor>("FlatFileReader/Processor");
             Logger.Debug("registering writer");
