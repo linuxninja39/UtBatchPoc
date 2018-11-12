@@ -1,25 +1,38 @@
+using System.Collections.Generic;
+using DbStuffz.Models;
+using DbStuffz.Repositories;
 using NLog;
 using Summer.Batch.Infrastructure.Item;
 
 namespace ArBatch
 {
-    public class TestReader : IItemReader<Class1>
+    public class TestReader : IItemReader<InModel>
     {
+        private readonly IInRepository _inRepository;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private int _counter = 0;
+        private IList<InModel> _rows;
 
-        public Class1 Read()
+        public TestReader(IInRepository inRepository)
+        {
+            _inRepository = inRepository;
+        }
+
+        public InModel Read()
         {
             Logger.Debug("reading");
-            if (_counter < 10)
+            if (_rows == null)
             {
-                _counter++;
-                return new Class1();
+                _rows = _inRepository.GetIns();
             }
-            else
+
+            if (_rows.Count < 1)
             {
                 return null;
             }
+
+            var t = _rows[0];
+            _rows.RemoveAt(0);
+            return t;
         }
     }
 }

@@ -64,6 +64,10 @@
       <Project>{0c992e15-f8d2-442a-bb7d-a3787a46a1d6}</Project>
       <Name>Summer.Batch.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DbStuffz\DbStuffz.csproj">
+      <Project>{d1377fcd-f567-44ca-835a-1d684df2f3a3}</Project>
+      <Name>DbStuffz</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

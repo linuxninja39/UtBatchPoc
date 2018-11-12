@@ -58,12 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DbStuffzContext.cs" />
     <Compile Include="ModelConfiguration.cs" />
     <Compile Include="Models\InModel.cs" />
     <Compile Include="Models\OutModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IInRepository.cs" />
+    <Compile Include="Repositories\InRepository.cs" />
+    <Compile Include="Repositories\IOutRepository.cs" />
+    <Compile Include="Repositories\OutRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

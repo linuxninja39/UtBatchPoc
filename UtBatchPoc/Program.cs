@@ -13,10 +13,10 @@ namespace UtBatchPoc
     {
         public static void Main(string[] args)
         {
-            /*
             var configurator = new ArBatchJobConfig();
             var job = configurator.GetXmlJob();
             var jobExecution = JobStarter.Start(job, new ArBatchUnityLoader());
+            /*
             */
             
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DbStuffzContext>());
@@ -24,13 +24,15 @@ namespace UtBatchPoc
             var con = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
             Console.WriteLine("connection string");
             Console.WriteLine(con);
-            using (var db = new DbStuffzContext())
+            /*
+            using (var db = )
             {
-                var in1 = new InModel {Id = 1, Name = "bob"};
+                var in1 = new InModel {Name = "joe"};
 
                 db.Ins.Add(in1);
                 db.SaveChanges();
             }
+            */
         }
     }
 }

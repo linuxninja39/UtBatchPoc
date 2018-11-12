@@ -1,16 +1,24 @@
+using System.Linq;
+using System.Linq.Expressions;
+using DbStuffz.Models;
 using NLog;
 using Summer.Batch.Infrastructure.Item;
 
 namespace ArBatch
 {
-    public class TestProcessor: IItemProcessor<Class1, Class1>
+    public class TestProcessor: IItemProcessor<InModel, OutModel>
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         
-        public Class1 Process(Class1 item)
+        public OutModel Process(InModel item)
         {
             Logger.Debug("processing");
-            return new Class1();
+            var outModel = new OutModel
+            {
+                Name = item.Name,
+                Reverse = item.Name.Reverse().ToString()
+            };
+            return outModel;
         }
     }
 }
